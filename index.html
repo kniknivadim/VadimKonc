@@ -22,8 +22,8 @@
             position: relative;
         }
 
-        /*  */
-        .background-video {
+        /* Фото на заднем плане */
+        .background-image {
             position: fixed;
             top: 0;
             left: 0;
@@ -31,13 +31,13 @@
             min-height: 100%;
             z-index: -1;
             object-fit: cover;
-            filter: brightness(0.6); /*  */
+            filter: brightness(0.6); /* Затемнение фото */
         }
 
-        /*  */
+        /* Основной контент */
         .content {
             text-align: center;
-            background-color: rgba(255, 255, 255, 0.8); /*  */
+            background-color: rgba(255, 255, 255, 0.8);
             padding: 40px;
             border-radius: 25px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
@@ -58,7 +58,7 @@
             margin-bottom: 30px;
         }
 
-        /*  */
+        /* Кнопка */
         .btn {
             background-color: #4CAF50;
             color: white;
@@ -73,10 +73,10 @@
 
         .btn:hover {
             background-color: #45a049;
-            transform: scale(1.05); /*  */
+            transform: scale(1.05);
         }
 
-        /*  */
+        /* Адаптивный дизайн */
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -91,11 +91,8 @@
 </head>
 <body>
 
-    <!-- Видео на заднем фоне -->
-    <video autoplay muted loop class="background-video">
-        <source src="Скриншот 10-10-2024 004728.jpg" type="video/mp4">
-        .
-    </video>
+    <!-- Фото на заднем фоне -->
+    <img src="Скриншот 10-10-2024 004728.jpg" alt="Background" class="background-image">
 
     <!-- Основной контент -->
     <div class="content">
