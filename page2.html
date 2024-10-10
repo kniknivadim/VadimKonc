@@ -4,78 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сборки Minecraft</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            overflow: hidden;
-        }
-
-        
-        .background-image {
-            position: fixed;
-            right: 0;
-            bottom: 0;
-            min-width: 100%;
-            min-height: 100%;
-            z-index: -1;
-            object-fit: cover; 
-            filter: brightness(0.6); 
-        }
-
-        
-        .menu {
-            background-color: rgba(255, 255, 255, 0.6);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .menu h2 {
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .menu a {
-            display: block;
-            margin: 10px 0;
-            padding: 10px;
-            background-color: rgba(76, 175, 80, 0.8);
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-            font-size: 18px;
-            width: 250px;
-            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .menu a:hover {
-            background-color: rgba(76, 175, 80, 1);
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-   
-    <img src="Скриншот 10-10-2024 004728.jpg" alt="Background" class="background-image">
+    
+    <video autoplay muted loop class="background-video">
+        <source src="648c56e76d418274f9e82.mp4" type="video/mp4">
+    </video>
 
    
     <div class="menu">
         <h2>Выберите сборку</h2>
-        <a href="https://github.com/kniknivadim/VadimKonc/releases/download/%23Minecraft/modVaOdim.rar" download>Fabric 1.20.1 Готово! 🎉</a>
-        <a href="#" download>В процессе сборки ⏳</a>
-        <a href="#" download>В процессе сборки ⏳</a>
-        <a href="#" download>В процессе сборки ⏳</a>
-        <a href="#" download>В процессе сборки ⏳</a>
-    </div>
+        
+        
+        <a href="mods06.10.2024.rar" download class="tooltip">
+            Fabric 1.20.1 Готово! 🎉
+            <span class="tooltiptext">
+                Версия Minecraft:Fabric 1.20.1<br>
+                ОЗУ: 6 ГБ<br>
+                Loader: 1.16.5
+            </span>
+        </a>
+        
+   
+        <a href="#" class="tooltip">В процессе сборки ⏳
+            <span class="tooltiptext">
+                Версия Minecraft: TBD<br>
+                ОЗУ: TBD<br>
+                Loader: TBD
+            </span>
+        </a>
+        
+        <a href="#" class="tooltip">В процессе сборки ⏳
+            <span class="tooltiptext">
+                Версия Minecraft: TBD<br>
+                ОЗУ: TBD<br>
+                Loader: TBD
+            </span>
+        </a>
 
+        <a href="#" class="tooltip">В процессе сборки ⏳
+            <span class="tooltiptext">
+                Версия Minecraft: TBD<br>
+                ОЗУ: TBD<br>
+                Loader: TBD
+            </span>
+        </a>
+    </div>
 </body>
 </html>
