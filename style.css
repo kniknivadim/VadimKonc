@@ -1,4 +1,4 @@
-/* Добавляем видеофон */
+
 #background-video {
     position: fixed;
     top: 0;
@@ -6,21 +6,21 @@
     width: 100vw;
     height: 100vh;
     object-fit: cover;
-    z-index: -2; /* На заднем плане */
+    z-index: -2; 
 }
 
-/* Оверлей между видео и контентом для затемнения */
+
 #video-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5); /* Черный с прозрачностью 0.5 */
-    z-index: -1; /* На уровне выше видео, но ниже контента */
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: -1; 
 }
 
-/* Основной стиль страницы */
+
 body {
     font-family: 'Orbitron', sans-serif;
     color: #e0e0e0;
@@ -30,7 +30,7 @@ body {
 }
 
 header {
-    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный фон */
+    background-color: rgba(0, 0, 0, 0.7); 
     color: #d482ff;
     padding: 20px;
     text-align: center;
@@ -41,8 +41,8 @@ header {
     max-width: 1200px;
     margin: 20px auto;
     padding: 0 20px;
-    padding-bottom: 60px; /* Добавляем отступ снизу для контейнера */
-    background-color: rgba(0, 0, 0, 0.6); /* Легкий черный фон */
+    padding-bottom: 60px; 
+    background-color: rgba(0, 0, 0, 0.6); 
     border-radius: 10px;
 }
 
@@ -96,13 +96,13 @@ header {
     box-shadow: 0 6px 15px rgba(212, 130, 255, 0.5);
 }
 
-/* Футер с отступом сверху и относительным позиционированием */
+
 .footer {
-    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный фон */
+    background-color: rgba(0, 0, 0, 0.7); 
     color: #d482ff;
     text-align: center;
     padding: 10px;
     border-top: 2px solid #d482ff;
-    position: relative; /* Добавляем относительное позиционирование */
-    bottom: -80px; /* Смещаем футер чуть ниже */
+    position: relative; 
+    bottom: -80px; 
 }
