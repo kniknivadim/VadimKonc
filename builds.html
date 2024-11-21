@@ -13,34 +13,34 @@
             margin: 0;
             padding: 0;
         }
-        /* Задний серый фон */
+        
         #recaptcha-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8); /* Полностью затемненный фон */
+            background: rgba(0, 0, 0, 0.8); 
             z-index: 9999;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        /* Скрытие элемента */
+        
         .hidden {
             display: none !important;
         }
     </style>
 </head>
 <body>
-    <!-- ReCaptcha Overlay -->
+    
     <div id="recaptcha-overlay" class="hidden">
         <div class="g-recaptcha" 
              data-sitekey="6LdIKYYqAAAAAHMijbRS8zcrPyBpd7acp0OUYqaA" 
              data-callback="onRecaptchaSuccess"></div>
     </div>
 
-    <!-- Ваш основной контент -->
+    
     <video autoplay muted loop id="background-video">
         <source src="cherry-blossom-house-minecraft-moewalls-com.mp4" type="video/mp4">
         Ваш браузер не поддерживает тег video.
@@ -84,42 +84,42 @@
     </div>
 
     <script>
-        // Функция для получения текущего времени
+        
         function getCurrentTime() {
             return new Date().getTime();
         }
 
-        // Проверяем, прошел ли уже 30 минут с момента последней проверки
+      
         function isRecaptchaPassedRecently() {
             const lastCheckedTime = localStorage.getItem('recaptcha_time');
             if (!lastCheckedTime) return false;
 
             const currentTime = getCurrentTime();
-            const thirtyMinutesInMillis = 30 * 60 * 1000; // 30 минут в миллисекундах
+            const thirtyMinutesInMillis = 30 * 60 * 1000; 
             return (currentTime - lastCheckedTime) < thirtyMinutesInMillis;
         }
 
-        // Сохраняем время успешной проверки
+        
         function setRecaptchaTime() {
             localStorage.setItem('recaptcha_time', getCurrentTime());
         }
 
-        // Функция вызывается при успешном прохождении reCAPTCHA
+        
         function onRecaptchaSuccess() {
             console.log("Проверка reCAPTCHA успешно пройдена");
-            // Скрываем overlay
+            
             document.getElementById('recaptcha-overlay').classList.add('hidden');
-            // Сохраняем время проверки
+            
             setRecaptchaTime();
         }
 
-        // При загрузке страницы проверяем, нужно ли показывать reCAPTCHA
+        
         window.onload = function() {
             if (isRecaptchaPassedRecently()) {
-                // Если прошло менее 30 минут, скрываем reCAPTCHA
+                
                 document.getElementById('recaptcha-overlay').classList.add('hidden');
             } else {
-                // Если прошло больше 30 минут, показываем reCAPTCHA
+                
                 document.getElementById('recaptcha-overlay').classList.remove('hidden');
             }
         };
