@@ -34,7 +34,7 @@
 </head>
 <body>
     <!-- ReCaptcha Overlay -->
-    <div id="recaptcha-overlay">
+    <div id="recaptcha-overlay" class="hidden">
         <div class="g-recaptcha" 
              data-sitekey="6LdIKYYqAAAAAHMijbRS8zcrPyBpd7acp0OUYqaA" 
              data-callback="onRecaptchaSuccess"></div>
@@ -84,12 +84,45 @@
     </div>
 
     <script>
+        // Функция для получения текущего времени
+        function getCurrentTime() {
+            return new Date().getTime();
+        }
+
+        // Проверяем, прошел ли уже 30 минут с момента последней проверки
+        function isRecaptchaPassedRecently() {
+            const lastCheckedTime = localStorage.getItem('recaptcha_time');
+            if (!lastCheckedTime) return false;
+
+            const currentTime = getCurrentTime();
+            const thirtyMinutesInMillis = 30 * 60 * 1000; // 30 минут в миллисекундах
+            return (currentTime - lastCheckedTime) < thirtyMinutesInMillis;
+        }
+
+        // Сохраняем время успешной проверки
+        function setRecaptchaTime() {
+            localStorage.setItem('recaptcha_time', getCurrentTime());
+        }
+
         // Функция вызывается при успешном прохождении reCAPTCHA
         function onRecaptchaSuccess() {
             console.log("Проверка reCAPTCHA успешно пройдена");
-            // Убираем overlay
+            // Скрываем overlay
             document.getElementById('recaptcha-overlay').classList.add('hidden');
+            // Сохраняем время проверки
+            setRecaptchaTime();
         }
+
+        // При загрузке страницы проверяем, нужно ли показывать reCAPTCHA
+        window.onload = function() {
+            if (isRecaptchaPassedRecently()) {
+                // Если прошло менее 30 минут, скрываем reCAPTCHA
+                document.getElementById('recaptcha-overlay').classList.add('hidden');
+            } else {
+                // Если прошло больше 30 минут, показываем reCAPTCHA
+                document.getElementById('recaptcha-overlay').classList.remove('hidden');
+            }
+        };
     </script>
 </body>
 </html>
