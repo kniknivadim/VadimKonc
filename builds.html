@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -5,18 +6,42 @@
     <title>Сборки Minecraft</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <!-- Подключение Google reCAPTCHA -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+        body {
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        #recaptcha-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-   
+    <div id="recaptcha-overlay">
+        <div class="g-recaptcha" data-sitekey="6LfkIoYqAAAAAG17KEtSgGQQZGdwW4q9itOAhcG3" data-callback="onRecaptchaSuccess"></div>
+    </div>
+
     <video autoplay muted loop id="background-video">
         <source src="cherry-blossom-house-minecraft-moewalls-com.mp4" type="video/mp4">
         Ваш браузер не поддерживает тег video.
     </video>
-
+    
     <div id="video-overlay"></div>
-
+   
     <header>
         <h1>Сборки Minecraft</h1>
     </header>
@@ -24,7 +49,6 @@
     <div class="container">
         <h2>Выберите сборку Minecraft</h2>
         <div class="builds-container">
-            
             <div class="build-card">
                 <div class="icon-container">
                     <img src="Meh1.png" alt="Иконка сборки 1">
@@ -46,22 +70,18 @@
                     <a href="build2.html" class="button">Подробнее</a>
                 </div>
             </div>
-            
         </div>
-    </div>
-
-    <!-- Форма с reCAPTCHA -->
-    <div class="captcha-container">
-        <form action="submit_form.php" method="POST">
-            <h3>Проверка перед отправкой</h3>
-            <div class="g-recaptcha" data-sitekey="6LfkIoYqAAAAALeUKApkJ8NLQwpvHxjgFf8yTAyy"></div> <!-- Замените ВАШ_SITE_KEY на ваш ключ сайта -->
-            <br>
-            <button type="submit" class="button">Отправить</button>
-        </form>
     </div>
 
     <div class="footer">
         <p>© 2024 Vadim_Konc</p>
     </div>
+
+    <script>
+        function onRecaptchaSuccess() {
+            // Скрываем оверлей после успешной проверки
+            document.getElementById('recaptcha-overlay').classList.add('hidden');
+        }
+    </script>
 </body>
 </html>
