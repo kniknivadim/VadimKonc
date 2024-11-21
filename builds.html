@@ -13,64 +13,45 @@
             margin: 0;
             padding: 0;
         }
-
-        /* Оверлей для reCAPTCHA */
+        /* Задний серый фон */
         #recaptcha-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.95); /* Почти черный фон */
+            background: rgba(0, 0, 0, 0.8); /* Полностью затемненный фон */
             z-index: 9999;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-
-        /* Когда оверлей скрыт */
+        /* Скрытие элемента */
         .hidden {
-            display: none;
-        }
-
-        /* Скрываем весь сайт за оверлеем */
-        #background-video, #video-overlay, header, .container, .footer {
-            pointer-events: none; /* Запрещаем взаимодействие с элементами */
-            filter: blur(10px); /* Размываем содержимое */
-        }
-
-        /* Убираем размытие и доступность после проверки */
-        .hidden ~ #background-video,
-        .hidden ~ #video-overlay,
-        .hidden ~ header,
-        .hidden ~ .container,
-        .hidden ~ .footer {
-            pointer-events: auto; /* Включаем взаимодействие */
-            filter: none; /* Убираем размытие */
+            display: none !important;
         }
     </style>
 </head>
 <body>
-    <!-- Оверлей с reCAPTCHA -->
+    <!-- ReCaptcha Overlay -->
     <div id="recaptcha-overlay">
-        <div class="g-recaptcha" data-sitekey="6LdIKYYqAAAAAHMijbRS8zcrPyBpd7acp0OUYqaA" data-callback="onRecaptchaSuccess"></div>
+        <div class="g-recaptcha" 
+             data-sitekey="6LdIKYYqAAAAAHMijbRS8zcrPyBpd7acp0OUYqaA" 
+             data-callback="onRecaptchaSuccess"></div>
     </div>
 
-    <!-- Видео-фон -->
+    <!-- Ваш основной контент -->
     <video autoplay muted loop id="background-video">
         <source src="cherry-blossom-house-minecraft-moewalls-com.mp4" type="video/mp4">
         Ваш браузер не поддерживает тег video.
     </video>
-
-    <!-- Текстовый оверлей -->
+    
     <div id="video-overlay"></div>
-
-    <!-- Заголовок -->
+   
     <header>
         <h1>Сборки Minecraft</h1>
     </header>
 
-    <!-- Контент -->
     <div class="container">
         <h2>Выберите сборку Minecraft</h2>
         <div class="builds-container">
@@ -98,14 +79,15 @@
         </div>
     </div>
 
-    <!-- Футер -->
     <div class="footer">
         <p>© 2024 Vadim_Konc</p>
     </div>
 
     <script>
+        // Функция вызывается при успешном прохождении reCAPTCHA
         function onRecaptchaSuccess() {
-            // Убираем затемненный оверлей после успешной проверки
+            console.log("Проверка reCAPTCHA успешно пройдена");
+            // Убираем overlay
             document.getElementById('recaptcha-overlay').classList.add('hidden');
         }
     </script>
