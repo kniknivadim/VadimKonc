@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -6,6 +5,8 @@
     <title>Сборки Minecraft</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <!-- Подключение Google reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
    
@@ -14,10 +15,8 @@
         Ваш браузер не поддерживает тег video.
     </video>
 
-    
     <div id="video-overlay"></div>
 
-   
     <header>
         <h1>Сборки Minecraft</h1>
     </header>
@@ -49,6 +48,17 @@
             </div>
             
         </div>
+    </div>
+
+    <!-- Форма с reCAPTCHA -->
+    <div class="captcha-container">
+        <form action="submit_form.php" method="POST">
+            <h3>Проверка перед отправкой</h3>
+            <div class="g-recaptcha" data-sitekey="6LfkIoYqAAAAAG17KEtSgGQQZGdwW4q9itOAhcG3
+"></div> <!-- Замените ВАШ_SITE_KEY на ваш ключ сайта -->
+            <br>
+            <button type="submit" class="button">Отправить</button>
+        </form>
     </div>
 
     <div class="footer">
